@@ -8,29 +8,31 @@
 
     <div class="input-group">
       <label for="title">Título</label>
-      <input type="text" id="title" placeholder="Ingresar título del proyecto" />
+      <input type="text" id="title" [(ngModel)]="proyecto.titulo" name="titulo" placeholder="Ingresar título del proyecto" />
     </div>
 
     <div class="input-group">
       <label for="members">Integrantes</label>
-      <input type="text" id="members" placeholder="Por Ejemplo: Alexandra G., Javiera P." />
+      <input type="text" id="members" [(ngModel)]="proyecto.integrantes" name="integrantes" placeholder="Por Ejemplo: Alexandra G., Javiera P." />
     </div>
 
     <div class="input-group">
       <label for="members">Duración Estimada</label>
-      <input type="text" id="members" placeholder="Por Ejemplo: 1 Marzo - 1 Septiembre" />
+      <input type="text" id="members" [(ngModel)]="proyecto.duracion" name="duracion" placeholder="Por Ejemplo: 1 Marzo - 1 Septiembre" />
     </div>
 
     <div class="input-group">
       <label for="budget">Presupuesto</label>
-      <input type="number" id="budget" placeholder="Ingresar números enteros" />
+      <input type="number" id="budget" [(ngModel)]="proyecto.presupuesto" name="presupuesto" placeholder="Ingresar números enteros" />
     </div>
+    
     <div class="input-group">
       <label for="keywords">Palabras Clave</label>
-      <input type="text" id="keywords" placeholder="Ingresar Palabras con relación al proyecto" />
+      <input type="text" id="keywords" [(ngModel)]="proyecto.palabrasClave" name="palabrasClave" placeholder="Ingresar Palabras con relación al proyecto" />
     </div>
+    
     <div class="button-container">
-      <button class="send-button">Enviar</button>
+      <button class="send-button" (click)="enviarDatos()">Enviar</button>
     </div>
   </div>
 </div>
