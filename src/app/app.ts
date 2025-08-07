@@ -25,7 +25,6 @@ export class App {
   constructor(private apiService: ApiService) { }
 
   enviarDatos() {
-    // This message should appear instantly when you click the button
     console.log('Botón presionado. Iniciando envío de datos...');
     console.log('Datos a enviar:', this.proyecto);
     this.proyecto = {
@@ -35,17 +34,13 @@ export class App {
       presupuesto: 0,
       palabrasClave: ''
     };
+    console.log('Formulario reseteado con éxito.');
       
     this.apiService.crearProyecto(this.proyecto).subscribe(
       response => {
         console.log('Proyecto guardado con éxito:', response);
-        
-        // The form will reset now.
-        // This message should appear after the form is reset
-        console.log('Formulario reseteado con éxito.');
       },
       error => {
-        // If this message appears, the API call failed
         console.error('Error al guardar el proyecto:', error);
       }
     );
