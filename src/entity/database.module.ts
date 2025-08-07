@@ -19,7 +19,7 @@ import { Proyecto } from '../entity/proyecto.entity';
           password: db.password,
           database: db.name,
           entities: [Proyecto],
-          synchronize: true,
+          synchronize: false,
           autoLoadEntities: true,
         };
       },
