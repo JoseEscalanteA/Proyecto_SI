@@ -25,12 +25,14 @@ $ npm run test
 ## Archivo .env 
 1. Crear un usuario con la misma información en la BD de MySQL
 2. Crear el archivo .env con esta información para conectar la BD
-        # 📦 Base de datos
-        DB_HOST=localhost
-        DB_PORT=3306
-        DB_USERNAME=proyecto
-        DB_PASSWORD=
-        DB_NAME=investigacion
+
+# 📦 Base de datos
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=proyecto
+DB_PASSWORD=
+DB_NAME=investigacion 
+
 3. Ingresar npm run start:dev en consola 
 
 #Excepciones

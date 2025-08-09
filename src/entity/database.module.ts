@@ -7,7 +7,7 @@ import { Proyecto } from '../entity/proyecto.entity';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule], // del paquete @nestjs/config
+      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
         const db = configService.get('database');
@@ -19,7 +19,7 @@ import { Proyecto } from '../entity/proyecto.entity';
           password: db.password,
           database: db.name,
           entities: [Proyecto],
-          synchronize: false,
+          synchronize: true,
           autoLoadEntities: true,
         };
       },
