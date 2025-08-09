@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api/api.service';
-import { Proyecto } from './model/proyecto.model';
+import { ApiService } from '../send/api.service';
+import { Proyecto } from '../model/proyecto.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,8 +9,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule
   ],
-  templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  templateUrl: './view.html',
+  styleUrls: ['./styles.css']
 })
 export class App {
   
@@ -24,17 +24,9 @@ export class App {
 
   constructor(private apiService: ApiService) { }
 
-  enviarDatos() {
+  rellenarFormulario() {
     console.log('Botón presionado. Iniciando envío de datos...');
     console.log('Datos a enviar:', this.proyecto);
-    this.proyecto = {
-      titulo: '',
-      integrantes: '',
-      duracion: '',
-      presupuesto: 0,
-      palabrasClave: ''
-    };
-    console.log('Formulario reseteado con éxito.');
       
     this.apiService.crearProyecto(this.proyecto).subscribe(
       response => {
@@ -44,5 +36,14 @@ export class App {
         console.error('Error al guardar el proyecto:', error);
       }
     );
+
+    this.proyecto = {
+        titulo: '',
+        integrantes: '',
+        duracion: '',
+        presupuesto: 0,
+        palabrasClave: ''
+      };
+      console.log('Formulario reseteado con éxito.');
   }
 }
