@@ -1,7 +1,8 @@
 export class CreateProyectoDto {
-  titulo: string;
-  integrantes: string;
-  duracion: string;
-  presupuesto: number;
-  palabrasClave: string;
+    idProyecto: number;
+    titulo: string;
+    integrantes: string;
+    duracion: string;
+    presupuesto: number;
+    palabrasClave: string;
 }
