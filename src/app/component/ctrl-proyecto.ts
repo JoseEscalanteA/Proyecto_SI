@@ -13,14 +13,15 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./styles.css']
 })
 export class App {
-  
-  proyecto: Proyecto = {
-    titulo: '',
-    integrantes: '',
-    duracion: '',
-    presupuesto: 0,
-    palabrasClave: ''
-  };
+  private contadorId: number = 1;
+   proyecto: Proyecto = {
+    idProyecto: 1,
+     titulo: '',
+     integrantes: '',
+     duracion: '',
+     presupuesto: 0,
+     palabrasClave: ''
+   };
 
   constructor(private apiService: ApiService) { }
 
@@ -31,19 +32,23 @@ export class App {
     this.apiService.crearProyecto(this.proyecto).subscribe(
       response => {
         console.log('Proyecto guardado con éxito:', response);
+        this.contadorId++;
+        this.proyecto.idProyecto = this.contadorId;
       },
       error => {
         console.error('Error al guardar el proyecto:', error);
       }
     );
 
+    // Reset text
     this.proyecto = {
-        titulo: '',
-        integrantes: '',
-        duracion: '',
-        presupuesto: 0,
-        palabrasClave: ''
-      };
+      idProyecto: this.contadorId,
+      titulo: '',
+      integrantes: '',
+      duracion: '',
+      presupuesto: 0,
+      palabrasClave: ''
+    };
       console.log('Formulario reseteado con éxito.');
   }
 }
