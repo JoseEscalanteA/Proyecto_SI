@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../send/api.service';
+import { ProyectoService } from '../send/proyecto.service';
 import { Proyecto } from '../model/proyecto.model';
 import { FormsModule } from '@angular/forms';
 
@@ -23,13 +23,13 @@ export class App {
      palabrasClave: ''
    };
 
-  constructor(private apiService: ApiService) { }
+  constructor(private proyectoService: ProyectoService) { }
 
   rellenarFormulario() {
     console.log('Botón presionado. Iniciando envío de datos...');
     console.log('Datos a enviar:', this.proyecto);
       
-    this.apiService.crearProyecto(this.proyecto).subscribe(
+    this.proyectoService.crearProyecto(this.proyecto).subscribe(
       response => {
         console.log('Proyecto guardado con éxito:', response);
         this.contadorId++;
